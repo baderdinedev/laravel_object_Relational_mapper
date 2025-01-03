@@ -14,5 +14,18 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $user = App\Models\User::find(1);
+
+
+
+    return view("address",[
+        'user' => $user
+    ]);
+});
+
+Route::get('create',function(){
+    App\Models\Address::create([
+        'user_id' => 1,
+        "line_1" => "hhhhhhh"
+    ]);
 });
